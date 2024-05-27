@@ -23,6 +23,12 @@
           &amp;
           {{ siteIcp }}
         </a>
+        <br />
+        <!-- 公安备案 -->
+        <a v-if="policeIcp" :href="policeIcpURL" rel="noreferrer" target="_blank">
+          <img style="width: 16px; height: 17px;" src="/images/备案图标.png" />
+          {{ policeIcp }}
+        </a>
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
@@ -48,6 +54,8 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const policeIcp = ref(import.meta.env.VITE_SITE_POLICE_ICP);
+const policeIcpURL = ref(import.meta.env.VITE_SITE_POLICE_ICP_URL);
 const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
@@ -66,8 +74,8 @@ const siteUrl = computed(() => {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 46px;
-  line-height: 46px;
+  height: 44px;
+  line-height: 20px;
   text-align: center;
   z-index: 0;
   font-size: 14px;
